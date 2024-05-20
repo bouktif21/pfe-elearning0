@@ -1,0 +1,9 @@
+.pdf{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.file {
+    width: calc(50% - 10px); /* Subtract the desired gap value from 50% */
+    /* Add other styles for your card, such as padding, margin, etc. */
+  }

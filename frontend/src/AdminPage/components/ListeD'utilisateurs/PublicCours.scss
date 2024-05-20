@@ -1,0 +1,174 @@
+.Ajouter_User_form{
+
+    form input{
+        width: 79.5%;
+        outline: none;
+        border: 1px solid #fff;
+        padding: 12px 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        margin-left: 15px ;
+
+    }
+    .input-group{
+        width: 100%;
+
+    
+    }
+    .public-input-group-text{
+        border: none;
+        width: 100px;
+        padding: 12px 20px;
+        background:  rgb(21, 170, 150);
+        color: #FFF;
+        border-radius: 5px;
+
+    }
+    .formSelect{
+        border-radius: 5px;
+        width: 74%;
+        color: #636363;
+    
+    }
+    .public-file-item{
+        list-style: none;
+        width: 82%;
+        margin: 1.2em 2rem 1.2rem 1rem ;
+        padding-left: 1.2rem;
+        background-color: #abd1c7;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        color: black;
+    
+        svg {
+            color: #2e7c67;
+            &:first-child {
+                font-size: 1.2em;
+                margin-right: 0.8em;
+            }
+        }
+    
+        p {
+            flex: 1;
+            margin-top: 0.9rem;
+            font-size: 0.9rem;
+        }
+    
+    }
+}
+
+.public-cours{
+    
+        text-align: center;
+      .box {
+        padding: 30px 20px;
+        transition: 0.5s;
+      }
+       .img {
+        margin: 0 29px;
+        p{
+            padding: 25px 0;
+            font-size: 2rem;
+            text-align: center;
+            border: 1px solid #d5d8d8;
+          }
+      }
+       h1 {
+        font-weight: 500;
+        font-size: 20px;
+        margin: 25px 0 14PX 7px;
+        line-height: 30px;
+
+      }
+       .box .show {
+        opacity: 0;
+      }
+       .box:hover {
+        background-color: #1eb2a6;
+        color: #FFF;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+       .box:hover .show {
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+       .box:hover h1 {
+        color: #fff;
+      }
+      .voir-Btn{
+        text-decoration: none;
+        background-color:#1eb2a6 ;
+        color: #ffffff;
+        padding: 4px 35px 0 35px;
+        border-radius: 5px;
+
+      }
+      .box:hover .voir-Btn{
+        background-color:#ffffff ;
+        color: #1eb2a6;
+      }
+ 
+      /*-------------online---------*/
+      @media screen and (max-width: 768px) {
+      }
+}
+.public-Matiéres{
+    
+  text-align: center;
+  .box {
+    padding: 30px 20px;
+    transition: 0.5s;
+  }
+  .img {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    position: relative;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  h1 {
+    font-weight: 500;
+    font-size: 20px;
+    margin: 20px 0;
+    line-height: 30px;
+  }
+  .voir-Btn{
+    text-decoration: none;
+
+  }
+  span {
+    background-color: #f8f8f8;
+    padding: 5px 20px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #1eb2a6;
+    border-radius: 5px;
+  }
+
+  .box .show {
+    opacity: 0;
+  }
+  .box:hover {
+    background-color: #1eb2a6;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .box:hover .show {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .box:hover h1 {
+    color: #fff;
+  }
+}

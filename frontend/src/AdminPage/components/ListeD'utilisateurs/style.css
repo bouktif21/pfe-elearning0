@@ -1,0 +1,19 @@
+.Eicon{
+    font-size: 80px;
+    color: rgb(139, 198, 179);
+    margin-left: 90px;
+    }
+    .Btn{
+        background-color: rgb(33, 123, 123);
+        color: aliceblue;
+        padding: 14px 10px 8px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+    }
+    .Btn:hover{
+        background-color: aliceblue;
+        color: rgb(33, 123, 123);
+        
+    }
+    

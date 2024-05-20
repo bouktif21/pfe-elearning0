@@ -1,0 +1,64 @@
+
+/*--------hero------------*/
+.hero {
+  background-image: url("../../../../public/images/bg.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  padding-top: 17%;
+  padding-right: 50px;
+  color: #fff;
+}
+.row{
+  margin-bottom: 50px;
+}
+.hero #heading h3 {
+  color: #fff;
+}
+.hero #heading {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.button button{
+  margin-top: 300px;
+  margin-left: 50px;
+  padding: 16px 30px;
+  background-color: #1eb2a6;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 24px 36px -11px rgb(0 0 0 / 9%);
+  transition: 0.5s;
+}
+button:hover {
+  box-shadow: none;
+}
+.margin1{
+  margin-top: 100px;
+}
+.primary-btn {
+  margin-right: 20px;
+  background-color: #1eb2a6;
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .margin {
+    height: 40vh;
+  }
+  .hero {
+    background-position: right;
+    padding-top: 50%;
+    height: 80vh;
+  }
+  .hero .row {
+    width: 100%;
+  }
+}
