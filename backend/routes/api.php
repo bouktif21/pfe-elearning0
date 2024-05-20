@@ -25,6 +25,7 @@ use App\Http\Controllers\CertifcateController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\ReunionController;
 use Laravel\Sanctum\Sanctum;
 
 
@@ -100,6 +101,11 @@ Route::middleware(['auth:sanctum','isEnseignant'])->group( function(){
     Route::get('inscription_student/{id}',[AttributionController::class, 'getInscriptionParId']);
     Route::put('/update_student_status/{id}', [AttributionController::class, 'updateStatus']);
     Route::post('/add_certificate', [CertifcateController::class, 'store']);
+    Route::post('/AjouteCoursEnLigne', [ReunionController::class, 'store']);
+    Route::get('CoursEnLigne/{id}',[ReunionController::class, 'getReunionParFormationId']);
+    Route::delete('delete_Reunion/{id}', [ReunionController::class, 'destroy']);
+    Route::get('get_reunion_parId/{id}',[ReunionController::class, 'getParId']);
+    Route::put('/update_reunion/{id}', [ReunionController::class, 'update']);
 
 
 });
@@ -127,6 +133,7 @@ Route::middleware(['auth:sanctum','isEtudiant'])->group( function(){
     Route::get('Etudiant_Cours/{id}',[CourController::class, 'getCourParFormationId']);
     Route::get('Etudiant_qcm/{id}',[QuizController::class, 'getParFormationId']);
     Route::get('get_question_parQcmId/{id}',[QuestionController::class, 'get']);
+    Route::get('etudiantCoursEnLigne/{id}',[ReunionController::class, 'getReunionParFormationId']);
 
 
 });

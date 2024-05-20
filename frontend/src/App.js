@@ -28,6 +28,8 @@ import EnseignantProfile from "./EnseignantPage/components/profil/Profile"
 import AddQcm from "./EnseignantPage/components/QCM/AddQcm"
 import Qcm from "./EnseignantPage/components/QCM/Qcm"
 import Formation from "./EnseignantPage/components/formation/Formation"
+import AddReunion from "./EnseignantPage/components/Reunion/AddCourEnLigne"
+import UpdateReunion from "./EnseignantPage/components/Reunion/UpdateReunion"
 import AddFormation from "./EnseignantPage/components/formation/AddFormation"
 import UpdateQcm from "./EnseignantPage/components/QCM/UpdateQcm"
 import AddQuestion from "./EnseignantPage/components/QCM/AddQuestion"
@@ -39,7 +41,7 @@ import ListeEtudiant from "./EnseignantPage/components/listeEtudiant/index"
 import InscriptionEtudiant from "./EnseignantPage/components/listeEtudiant/listeEudiant"
 import EseignantCertificateIndex from "./EnseignantPage/components/certificate/Index"
 import EtudiantCertificate from "./EnseignantPage/components/certificate/listeEudiant"
-
+import Reunion from "./EnseignantPage/components/Reunion/Reunion"
 import EtudiantProfile from "./EtudiantPage/components/profil/Profile"
 import FormationIndex from "./EtudiantPage/components/ListeDeFormation/Index"
 import VotreCours from "./EtudiantPage/components/votreCours/Index"
@@ -47,6 +49,8 @@ import CertificateIndex from "./EtudiantPage/components/certificate/Index"
 import Certife from "./EnseignantPage/components/certificate/Certife"
 import ListeCoours from "./EtudiantPage/components/votreCours/ListeCoours"
 import TestQcm from "./EtudiantPage/components/votreCours/TestQcm"
+
+
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -108,7 +112,11 @@ function App() {
                 <Route path="/enseignant/Certificate_liste" element={< EseignantCertificateIndex/>} />
                 <Route path="/enseignant/certife_listeEtudiant/:formationId/:formationName" element={< EtudiantCertificate/>} />
                 <Route path="/enseignant/cetificat/:id/:prenom/:nom/:formation" element={< Certife/>} />
+                <Route path="/enseignant/cour_en_ligne" element={< Reunion/>} />
+                <Route path="/enseignant/ajouter_cour_en_ligne" element={< AddReunion/>} />
+                <Route path="/enseignant/Modifier_cour_en_ligne/:formationId" element={< UpdateReunion/>} />
 
+                
                 
               </Route>
 

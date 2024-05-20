@@ -56,6 +56,18 @@ const Sidebar = () => {
               </Link>
             </li> 
             <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
+              <Link to="/Enseignant/cour_en_ligne" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
+                <FaUsers className="nav-icon" />
+                <p style={{marginBottom: 9, marginLeft: 5}}>Réunion</p>
+              </Link>
+            </li> 
+            <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
+              <Link to="/Enseignant/ajouter_cour_en_ligne" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
+                <FaPlusCircle className="nav-icon" />
+                <p style={{marginBottom: 9, marginLeft: 5}}>Ajoute Réunion</p>
+              </Link>
+            </li> 
+            <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
               <Link to="/Enseignant/liste_qcm" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
                 <FaListAlt className="nav-icon" />
                 <p style={{marginBottom: 9, marginLeft: 5}}>Liste de QCM</p>

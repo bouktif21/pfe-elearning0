@@ -42,7 +42,8 @@ const Formation = () => {
           // Handle the response data
           if(response.data.status === 200){
             swal("Success",response.data.message , 'success');
-            axios.get(`/api/formations`).then(response => {
+            const authUser = JSON.parse(localStorage.getItem('auth_USER'));
+            axios.get(`/api/Enseignant_formations/${authUser.id}`).then(response => {
               // Handle the response data
               if(response.data.status === 200){
                 setViewFormation(response.data.formations)
