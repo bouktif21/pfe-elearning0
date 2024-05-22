@@ -98,8 +98,6 @@ class ReunionController extends Controller
        else{
         $reunion =  Reunion::find($id);
         if(  $reunion ){
-
-            $reunion = new Reunion();
             $reunion->url = $request->input('url');
             $reunion->FormationId = $request->input('FormationId');
             $reunion->date = $request->input('date');

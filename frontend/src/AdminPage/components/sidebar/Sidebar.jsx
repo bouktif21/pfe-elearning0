@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaTh, FaUser, FaUsers, FaUserPlus, FaPlus } from 'react-icons/fa'; // Importing necessary icons
+import { FaGraduationCap,FaTh, FaUser, FaUsers, FaUserPlus, FaPlus } from 'react-icons/fa'; // Importing necessary icons
 import logo from "../../../assets/logo.png"
 import { useState,useEffect } from 'react';
 const Sidebar = () => {
@@ -59,9 +59,15 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
-              <Link to="/add-notation" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
+              <Link to="/admin/Add_formation" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
                 <FaPlus className="nav-icon" />
-                <p style={{marginBottom: 9, marginLeft: 5}}>Ajouter Notation</p>
+                <p style={{marginBottom: 9, marginLeft: 5}}>Ajouter Formation</p>
+              </Link>
+            </li>
+            <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
+              <Link to="/admin/liste_formation" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
+                <FaGraduationCap className="nav-icon" />
+                <p style={{marginBottom: 9, marginLeft: 5}}>Liste de formation</p>
               </Link>
             </li>
           </ul>

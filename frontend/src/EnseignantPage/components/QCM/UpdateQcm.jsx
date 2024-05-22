@@ -15,14 +15,31 @@ const UpdateQcm = () => {
   const {id} = useParams()
   useEffect(() => {
     const authUser = JSON.parse(localStorage.getItem('auth_USER'));
+    setenseignant_id(authUser.id);
+
+    // Fetch formation options when enseignant_id changes
+    if (authUser.id) {
+      axios.get(`/api/Enseignant_formations/${authUser.id}`).then(response => {
+        // Handle the response data
+        if (response.data.status === 200) {
+          setFormationOptions(response.data.formations);
+        }
+      });
+    }
+  }, [enseignant_id]);
+  useEffect(() => {
+    const authUser = JSON.parse(localStorage.getItem('auth_USER'));
     const enseignantId = authUser.id;
     setenseignant_id(enseignantId);
     
-    axios.get(`/api/formations`).then(response => {
-      if (response.data.status === 200) {
-        setFormationOptions(response.data.formations);
-      }
-    });
+    if (authUser.id) {
+      axios.get(`/api/Enseignant_formations/${authUser.id}`).then(response => {
+        // Handle the response data
+        if (response.data.status === 200) {
+          setFormationOptions(response.data.formations);
+        }
+      });
+    }
    
     axios.get(`/api/getQuiszz/${enseignantId}`).then(response => {
       if (response.data.status === 200 && response.data.quizzes.length > 0) {

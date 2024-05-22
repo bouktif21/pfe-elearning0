@@ -74,12 +74,6 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
-              <Link to="/Enseignant/Add_formation" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
-                <FaPlusCircle className="nav-icon" />
-                <p style={{marginBottom: 9, marginLeft: 5}}>Ajouter Formation</p>
-              </Link>
-            </li> 
-            <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
               <Link to="/enseignant/liste_formation" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
                 <FaGraduationCap className="nav-icon" />
                 <p style={{marginBottom: 9, marginLeft: 5}}>Liste de formation</p>

@@ -25,7 +25,7 @@ const AddCours = () => {
     formData.append('Name', Name);
     formData.append('description', description);
     formData.append('FormationId', FormationId);
-    formData.append('file', file); // assuming only one file is uploaded
+    formData.append('file', file); 
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'

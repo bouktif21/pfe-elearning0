@@ -21,6 +21,7 @@ class CreateFormationsTable extends Migration
             $table->text('description');
             $table->text('length');
             $table->text('price');
+            $table->string('file');
             $table->timestamps();
         });
     }

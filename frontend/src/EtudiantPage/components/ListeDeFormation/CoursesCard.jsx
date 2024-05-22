@@ -54,47 +54,54 @@ const CoursesCard = () => {
       <section className='coursesCard'>
         <div className='container '>
           {viewFormation.map((val) => (
-            <div className='items' key={val.id}>
-              <div className='content flex'>
-                <div className='left'>
-                  <div className='img'>
-                    <img src={logo} alt='' />
-                  </div>
+          <div className='items' key={val.id}>
+          <div className='content flex'>
+            <div className='container flex'>
+              <div className='left'>
+                <div className='img'>
+                  <img src={logo} alt='' />
                 </div>
-                <div className='text'>
-                  <h1>{val.title}</h1>
-                  <p>{val.description}</p>
-                  <div className='rate'>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
-                    <label htmlFor=''>(5.0)</label>
-                  </div>
-                  <div className='details'>
-                    <>
-                      <div className='box'>
-                        <div className='dimg'>
-                          <img src={"http://127.0.0.1:8000/uploads/profile/"+val.enseignant.image} alt='' />
-                        </div>
-                        <div className='para'>
-                          <h4>{val.enseignant.firstname +" "+ val.enseignant.lastname}</h4>
-                          <h6>{val.enseignant.email}</h6>
-                        </div>
+              </div>
+              <div className='text'>
+                <h1>{val.title}</h1>
+                <p>{val.description}</p>
+                <div className='rate'>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <label htmlFor=''>(5.0)</label>
+                </div>
+                <div className='details'>
+                  <>
+                    <div className='box'>
+                      <div className='dimg'>
+                        <img src={"http://127.0.0.1:8000/uploads/profile/" + val.enseignant.image} alt='' />
                       </div>
-                      <span>{val.length}</span>
-                    </>
-                  </div>
+                      <div className='para'>
+                        <h4>{val.enseignant.firstname + " " + val.enseignant.lastname}</h4>
+                        <h6>{val.enseignant.email}</h6>
+                      </div>
+                    </div>
+                    <span>{val.length}</span>
+                  </>
                 </div>
               </div>
-              <div className='price'>
-                <h3>
-                  {val.price} / 20dt par mois
-                </h3>
-              </div>
-              <button className='outline-btn' onClick={() => handleClick(val.id)}>Participer</button>
             </div>
+            <video width="400" className="mr-30 border rounded-lg" controls>
+              <source src={`http://127.0.0.1:8000/uploads/videos/${val.file}`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className='price'>
+            <h3>
+              {val.price} / 20dt par mois
+            </h3>
+          </div>
+          <button className='outline-btn' onClick={() => handleClick(val.id)}>Participer</button>
+        </div>
+        
           ))}
         </div>
       </section>

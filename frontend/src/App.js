@@ -13,11 +13,12 @@ import AdminHome from "./AdminPage/MasterLayout/MasterLayout"
 import AdminPrivateRoutes from "./AdminPage/AdminPrivateRoutes"
 import AdminDashboard from "./AdminPage/components/Dashboard/Dashboard"
 import AdminProfile from './AdminPage/components/profil/Profile'
+import AdminFormation from "./AdminPage/components/formations/Index"
 import EnseignantIndex from "./AdminPage/components/ListeD'utilisateurs/EnseignantIndex"
 import EtudiantIndex from "./AdminPage/components/ListeD'utilisateurs/EtudiantIndex"
 import AddUser from "./AdminPage/components/ListeD'utilisateurs/AjouterUtilisateur"
 import ModifierUtilisateur from "./AdminPage/components/ListeD'utilisateurs/ModifierUtilisateur"
-
+import UpdateFormation from "./AdminPage/components/formations/UpdateFormation"
 import EnseignantPrivateRoutes from "./EnseignantPage/EnseignantPrivateRoutes"
 import EnseignantHome from './EnseignantPage/MasterLayout/MasterLayout'
 import EtudiantPrivateRoutes from './EtudiantPage/EtudiantPrivateRoutes'
@@ -30,7 +31,7 @@ import Qcm from "./EnseignantPage/components/QCM/Qcm"
 import Formation from "./EnseignantPage/components/formation/Formation"
 import AddReunion from "./EnseignantPage/components/Reunion/AddCourEnLigne"
 import UpdateReunion from "./EnseignantPage/components/Reunion/UpdateReunion"
-import AddFormation from "./EnseignantPage/components/formation/AddFormation"
+import AddFormation from "./AdminPage/components/formations/AddFormations"
 import UpdateQcm from "./EnseignantPage/components/QCM/UpdateQcm"
 import AddQuestion from "./EnseignantPage/components/QCM/AddQuestion"
 import ViewQuestion from "./EnseignantPage/components/QCM/ViewQuestion"
@@ -85,6 +86,9 @@ function App() {
                 <Route path="/admin/enseignant_list" element={<EnseignantIndex />} />               
                 <Route path="/admin/add_user" element={<AddUser/>} />               
                 <Route path="/admin/update_user/:id" element={<ModifierUtilisateur/>} />               
+                <Route path="/admin/Add_formation" element={< AddFormation/>} />
+                <Route path="/admin/liste_formation" element={< AdminFormation/>} />
+                <Route path="/admin/update_formation/:idFormation" element={<UpdateFormation />} />
 
               </Route>
 
@@ -101,7 +105,6 @@ function App() {
                 <Route path="/enseignant/listeEtudiant/:formationId" element={< InscriptionEtudiant/>} />
 
                 <Route path="/enseignant/liste_qcm" element={< Qcm/>} />
-                <Route path="/enseignant/Add_formation" element={< AddFormation/>} />
                 <Route path="/enseignant/liste_formation" element={< Formation/>} />
                 <Route path="/enseignant/view_Qestion/:id" element={< ViewQuestion/>} />
                 <Route path="/enseignant/Update_Qestion/:QuestionId/:qcmId" element={< UpdateQuestion/>} />

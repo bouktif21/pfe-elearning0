@@ -62,6 +62,13 @@ Route::middleware(['auth:sanctum','isAdmin'])->group( function(){
 
     Route::delete('/delete_user/{id}',[UserController::class, 'destroy']);
     Route::get('get_user/{id}',[UserController::class,'getuser']);
+    Route::post('/Add_formations', [FormationController::class, 'store']);
+    Route::get('Liste_formations',[FormationController::class,'index']);
+    Route::get('Liste_formations',[FormationController::class,'index']);
+    Route::delete('/delete_formation/{id}', [FormationController::class, 'destroy']);
+    Route::get('formation/{id}',[FormationController::class,'getparid']);
+    Route::put('update_formations/{id}',[FormationController::class, 'update']);
+
 
 });
 
@@ -78,8 +85,6 @@ Route::middleware(['auth:sanctum','isEnseignant'])->group( function(){
     Route::put('Enseignant_updatePassword/{id}',[UserController::class, 'updatePassword']);
 
     Route::get('/Enseignant_formations/{id}', [FormationController::class, 'getWitheEnseignant']);
-    Route::post('/Add_formations', [FormationController::class, 'store']);
-    Route::delete('/delete_formation/{id}', [FormationController::class, 'destroy']);
 
     Route::get('/quizzes',  [QuizController::class, 'index']);
     Route::get('/getQuiszz/{EnseignantId}',  [QuizController::class, 'getQuiszz']);
@@ -107,6 +112,9 @@ Route::middleware(['auth:sanctum','isEnseignant'])->group( function(){
     Route::get('get_reunion_parId/{id}',[ReunionController::class, 'getParId']);
     Route::put('/update_reunion/{id}', [ReunionController::class, 'update']);
 
+    Route::get('Ensegniant_Cours/{id}',[CourController::class, 'getCourParFormationId']);
+    Route::get('Ensegniant_qcm/{id}',[QuizController::class, 'getParFormationId']);
+    Route::get('EnsegniantCoursEnLigne/{id}',[ReunionController::class, 'getReunionParFormationId']);
 
 });
 

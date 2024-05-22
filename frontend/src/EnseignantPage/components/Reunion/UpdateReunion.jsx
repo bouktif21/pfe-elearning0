@@ -42,7 +42,7 @@ function UpdateReunion() {
         e.preventDefault();
 
         try{
-            axios.post(`/api/update_reunion/${formationId}`, { FormationId,url,date}).then(res => {
+            axios.put(`/api/update_reunion/${formationId}`, { FormationId,url,date}).then(res => {
                       if(res.data.status === 200){
                         navigate(`/enseignant/cour_en_ligne`);
                         swal("Success",res.data.message,"success");

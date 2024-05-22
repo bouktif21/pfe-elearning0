@@ -15,7 +15,23 @@ const Registre = () => {
   const [confirmPassword, setConfirmPassword] = useState(""); // Ajout du state pour le champ de confirmation de mot de passe
   const [terms, setTerms] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  const [passwordStrength, setPasswordStrength] = useState(""); // State to store password strength message
+  const checkPasswordStrength = (password) => {
+    const strongPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{:;'?/>,.<,])(?=.*[a-zA-Z]).{8,}$/;
+    const mediumPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+  
+    if (strongPasswordRegex.test(password)) {
+      console.log("Strong password");
+      setPasswordStrength("Strong password");
+    } else if (mediumPasswordRegex.test(password)) {
+      console.log("Medium password");
+      setPasswordStrength("Medium password");
+    } else {
+      console.log("Weak password");
+      setPasswordStrength("Weak password");
+    }
+  };
+  
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -51,10 +67,16 @@ const Registre = () => {
             swal("Success", res.data.message, "success");
             navigate('/login');
           }
+          else{
+            const errors = res.data.validator_errors;
+            const errorMessages = Object.values(errors).flat().join('\n');
+            swal("Error", errorMessages, "error");
+          }
         });
       });
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+     console.log(error)
+
     }
   }
 
@@ -104,9 +126,17 @@ const Registre = () => {
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              checkPasswordStrength(e.target.value); // Check password strength on change
+            }}
             required
           />
+          {passwordStrength && (
+            <p style={{ fontSize:"13px", color: passwordStrength === "Strong password" ? "green" : "orange" }}>
+              {passwordStrength}
+            </p>
+          )}
 
           <input
             type="password"

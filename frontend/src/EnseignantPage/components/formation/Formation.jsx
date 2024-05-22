@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios"
-import DeleteIcon from '@mui/icons-material/Delete';
-import UpdateIcon from '@mui/icons-material/Update';
 import AddIcon from '@mui/icons-material/Add';
 
 import swal from 'sweetalert';
@@ -27,36 +25,7 @@ const Formation = () => {
 
   const navigate = useNavigate(); // Déplacer l'appel à useNavigate ici
 
-  const DeleteFormation = (e,id)=>{
-    e.preventDefault();
-    swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this formation!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        axios.delete(`/api/delete_formation/${id}`).then(response => {
-          // Handle the response data
-          if(response.data.status === 200){
-            swal("Success",response.data.message , 'success');
-            const authUser = JSON.parse(localStorage.getItem('auth_USER'));
-            axios.get(`/api/Enseignant_formations/${authUser.id}`).then(response => {
-              // Handle the response data
-              if(response.data.status === 200){
-                setViewFormation(response.data.formations)
-      
-              }
-          });      
-          }
-        })
-      } else {
-        swal("Your module is safe!");
-      }
-    });
-  }
+
 
   const columns = [
     {
@@ -107,31 +76,6 @@ const Formation = () => {
       headerName: "Prix",
       flex: 1,
     },
-    {
-      field: "actions",
-      headerName: "Action",
-      flex: 1,
-      renderCell: (params) => {
-        const handleClick = () =>
-          navigate(`/enseignant/update_Formation/${params.row.id}`);
-        return (
-          <Box
-            display="flex"
-            justifyContent="center"
-            borderRadius="4px"
-          >     
-            <Button type="submit" onClick={(e) => DeleteFormation(e, params.row.id)} color="secondary">
-              <DeleteIcon className="delateIcon" /> 
-            </Button>
-
-            <Button type="submit" color="secondary" onClick={handleClick} >
-              <UpdateIcon /> 
-            </Button>     
-      
-          </Box>
-        );
-      }
-    }
   ];
 
   return (

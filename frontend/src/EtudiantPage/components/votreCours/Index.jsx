@@ -3,7 +3,6 @@ import CoursesCard from './CoursesCard'
 function Index() {
   return (
     <>
-    <div>votre cours</div>
     <CoursesCard/>
     </>
     

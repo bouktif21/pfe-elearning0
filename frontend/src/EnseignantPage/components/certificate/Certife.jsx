@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState,useEffect } from 'react';
 import certificateTemplate from '../../../assets/Certificate.png';
 import { useParams } from 'react-router-dom';
 import { toPng } from 'html-to-image';
@@ -16,7 +16,17 @@ function Certife() {
     const [file ,setFile] =useState();
     const [image, setimage] = useState("");
     const [description, setDescription] = useState("");
+    const [E_name, setE_name] = useState("");
+    const [E_lastname, setE_lastname] = useState("");
+    const[signature,setSignature]=useState("")
+    useEffect(() => {
+      const authUser = JSON.parse(localStorage.getItem('auth_USER'));
 
+      setE_lastname(authUser.lastname);
+          setE_name(authUser.fisrtname)
+         
+
+    }, [id]);
     const onButtonClick = useCallback(() => {
         if (ref.current === null) {
             return;
@@ -67,7 +77,14 @@ function Certife() {
       };
 
    
-
+      const handleSignatureChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setSignature(reader.result);
+        };
+        reader.readAsDataURL(file);
+    };
   
 
     return (
@@ -80,12 +97,19 @@ function Certife() {
                 <div className='content' style={{ position: 'absolute', top: '57%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', width: '100%' }}>
                     <h6>{formation}</h6>
                 </div>
+                <div className='content' style={{ position: 'absolute', top: '80%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', width: '100%' }}>
+                    Enseignant  :
+                    <h6>{E_name+" "+E_lastname}</h6>
+                </div>
             </div>
+            <div className='flex'>
             <div style={{ textAlign: 'center', marginTop: '20px' }}>
                 <button style={{ padding: '10px 20px',backgroundColor: 'rgb(21, 170, 150)' , color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }} onClick={onButtonClick}>
                     Print Certificate
                 </button>
             </div>
+            </div>
+           
             <Grid container spacing={2}style={{marginLeft:"20px"}}>
             <Grid item xs={12}>
             <p><strong> Description:</strong></p>
