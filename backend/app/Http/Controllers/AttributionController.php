@@ -7,6 +7,7 @@ use App\Models\Attribution;
 use App\Models\Classe;
 use App\Models\level;
 use App\Models\User;
+use Attribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -112,5 +113,27 @@ public function update (Request $request , $id ){
         ]);        }
 
 } }
+
+
+
+public function  destroy($id){
+    $attribution =  Attribution::find($id);
+
+    if($attribution)
+    {
+
+            $attribution->delete();
+            return response()->json([
+                'status'=>200,
+                'message'=>'Inscription supprimé avec succès'
+            ]);
+
+    }
+    else{
+        return response()->json([
+            'status'=>404,
+            'message'=>' Aucun Inscription trouvé'
+        ]);
+    }}
 }
 

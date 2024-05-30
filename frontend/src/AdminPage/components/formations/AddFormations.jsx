@@ -8,11 +8,11 @@ function AddFormations() {
     const navigate = useNavigate();
     const [enseignantId, setEnseignantId] = useState("");
     const [enseignants, setEnseignants] = useState([]);
-    const [nom, setNom] = useState('');
+    const [name, setNom] = useState('');
     const [description, setDescription] = useState('');
     const [duree, setDuree] = useState('');
-    const [prix, setPrix] = useState('');
-    const [fichier, setFichier] = useState("");
+    const [price, setPrix] = useState('');
+    const [file, setFichier] = useState("");
     let messageErreur = ""; // définir la variable messageErreur ici
 
     useEffect(() => {
@@ -25,7 +25,7 @@ function AddFormations() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!nom || !description || !duree || !prix || !fichier) {
+        if (!name || !description || !duree || !price || !file) {
             messageErreur = "Tous les champs sont obligatoires";
         }
         if (messageErreur) {
@@ -38,7 +38,7 @@ function AddFormations() {
                     }
                 };
                 axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post(`/api/Add_formations`, { nom, description, duree, prix, enseignantId, fichier }, config).then(res => {
+                    axios.post(`/api/Add_formations`, { name, description, duree, price, enseignantId, file }, config).then(res => {
                         if (res.data.status === 200) {
                             setNom("");
                             setDescription("");
@@ -68,13 +68,13 @@ function AddFormations() {
                     >
                         <option>Choisir...</option>
                         {enseignants.map(option => (
-                            <option key={option.id} value={option.id}>{option.firstname + " " + option.lastname}</option>
+                            <option key={option.id} value={option.id}>{option.fisrtname + " " + option.lastname}</option>
                         ))}
                     </select>
                 </div>
                 <label>
                     Nom de la Formation:
-                    <input type="text" value={nom} onChange={e => setNom(e.target.value)} />
+                    <input type="text" value={name} onChange={e => setNom(e.target.value)} />
                 </label>
                 <label>
                     Description:
@@ -86,11 +86,11 @@ function AddFormations() {
                 </label>
                 <label>
                     Prix:
-                    <input type="text" value={prix} onChange={e => setPrix(e.target.value)} />
+                    <input type="text" value={price} onChange={e => setPrix(e.target.value)} />
                 </label>
                 <label>
                     Vidéo:
-                    <input type="file" name="fichier" onChange={(e) => setFichier(e.target.files[0])} />
+                    <input type="file" name="file" onChange={(e) => setFichier(e.target.files[0])} />
                 </label>
                 {messageErreur && <p>{messageErreur}</p>}
 

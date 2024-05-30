@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import swal from 'sweetalert';
-
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 function ListeEtudiant() { 
 
     const [ViewEtudiant, setViewEtudiant] = useState([]);
@@ -42,6 +42,34 @@ function ListeEtudiant() {
             console.error('Error updating status:', error);
         });
     };
+    const deleteStudent = (e,id)=>{
+        e.preventDefault();
+        swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this module!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            axios.delete(`/api/delete_inscription/${id}`).then(response => {
+              // Handle the response data
+              if(response.data.status === 200){
+                swal("Success",response.data.message , 'success');
+                axios.get(`/api/inscription_student/${formationId}`).then(response => {
+                    if (response.data.status === 200) {
+                        setViewEtudiant(response.data.Inscription);
+                    }
+                });     
+              }
+            })
+          } else {
+            swal("Your module is safe!");
+          }
+        });
+       
+      }
     const columns = [
         {
             field: "id",
@@ -103,6 +131,9 @@ function ListeEtudiant() {
                     >
                         <Button type="submit" color="secondary" onClick={handleClick} >
                             <UpdateIcon />
+                        </Button>
+                        <Button type="submit" color="secondary" onClick={(e) => deleteStudent(e, params.row.id)}  >
+                            <DeleteOutlineIcon />
                         </Button>
                     </Box>
                 );

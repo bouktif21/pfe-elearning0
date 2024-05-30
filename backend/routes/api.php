@@ -104,6 +104,7 @@ Route::middleware(['auth:sanctum','isEnseignant'])->group( function(){
     Route::get('/get_cour_par_Formation_id/{id}', [CourController::class, 'getCourParFormationId']);
 
     Route::get('inscription_student/{id}',[AttributionController::class, 'getInscriptionParId']);
+    Route::delete('delete_inscription/{id}',[AttributionController::class, 'destroy']);
     Route::put('/update_student_status/{id}', [AttributionController::class, 'updateStatus']);
     Route::post('/add_certificate', [CertifcateController::class, 'store']);
     Route::post('/AjouteCoursEnLigne', [ReunionController::class, 'store']);
