@@ -15,23 +15,7 @@ const Registre = () => {
   const [confirmPassword, setConfirmPassword] = useState(""); // Ajout du state pour le champ de confirmation de mot de passe
   const [terms, setTerms] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [passwordStrength, setPasswordStrength] = useState(""); // State to store password strength message
-  const checkPasswordStrength = (password) => {
-    const strongPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{:;'?/>,.<,])(?=.*[a-zA-Z]).{8,}$/;
-    const mediumPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-  
-    if (strongPasswordRegex.test(password)) {
-      console.log("Strong password");
-      setPasswordStrength("Strong password");
-    } else if (mediumPasswordRegex.test(password)) {
-      console.log("Medium password");
-      setPasswordStrength("Medium password");
-    } else {
-      console.log("Weak password");
-      setPasswordStrength("Weak password");
-    }
-  };
-  
+
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -67,16 +51,10 @@ const Registre = () => {
             swal("Success", res.data.message, "success");
             navigate('/login');
           }
-          else{
-            const errors = res.data.validator_errors;
-            const errorMessages = Object.values(errors).flat().join('\n');
-            swal("Error", errorMessages, "error");
-          }
         });
       });
-    } catch (error) {
-     console.log(error)
-
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -93,14 +71,14 @@ const Registre = () => {
         <form onSubmit={handleRegister}>
           <input
             type="text"
-            placeholder="First name"
+            placeholder="Prénom"
             value={fisrtname}
             onChange={(e) => setfisrtname(e.target.value)}
             required
           />
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Nom"
             value={lastname}
             onChange={(e) => setlastname(e.target.value)}
             required
@@ -108,7 +86,7 @@ const Registre = () => {
 
           <input
             type="email"
-            placeholder="Email address"
+            placeholder="Adresse e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -116,7 +94,7 @@ const Registre = () => {
 
           <input
             type="tel"
-            placeholder="Phone"
+            placeholder="Téléphone"
             value={phone}
             onChange={handlePhoneChange}
             required
@@ -124,23 +102,15 @@ const Registre = () => {
 
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              checkPasswordStrength(e.target.value); // Check password strength on change
-            }}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {passwordStrength && (
-            <p style={{ fontSize:"13px", color: passwordStrength === "Strong password" ? "green" : "orange" }}>
-              {passwordStrength}
-            </p>
-          )}
 
           <input
             type="password"
-            placeholder="Confirm password"
+            placeholder="Confirmez le mot de passe"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
@@ -153,16 +123,16 @@ const Registre = () => {
               checked={terms}
               onChange={(e) => setTerms(e.target.checked)}
             />
-            <label style={{ color: 'black' }}>I agree with <a href="#"> terms & conditions</a></label>
+            <label style={{ color: 'black' }}>je suis d'accord avec <a href="#"> termes et conditions</a></label>
           </div>
 
-          <button type="submit">Sign Up</button>
+          <button type="submit">S'inscrire</button>
 
           {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         </form>
 
         <div className="member">
-        Already a member ? <a href="/Login">Login here</a>
+        Déjà membre ? <a href="/Login">Connectez-vous ici</a>
         </div>
 
       </div>

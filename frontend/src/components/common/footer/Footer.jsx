@@ -8,11 +8,11 @@ const Footer = () => {
       <section className='newletter'>
         <div className='container flexSB'>
           <div className='left row'>
-            <h1>Newsletter - Stay tune and get the latest update</h1>
-            <span>Far far away, behind the word mountains</span>
+            <h1>Newsletter - Restez informé et obtenez les dernières mises à jour</h1>
+            <span>Loin, très loin, derrière les montagnes de mots</span>
           </div>
           <div className='right row'>
-            <input type='text' placeholder='Enter email address' />
+            <input type='text' placeholder='Entrez votre adresse e-mail' />
             <i className='fa fa-paper-plane'></i>
           </div>
         </div>
@@ -21,48 +21,48 @@ const Footer = () => {
         <div className='container padding'>
           <div className='box logo'>
             <h1>E_LEARNING</h1>
-            <span>ONLINE EDUCATION & LEARNING</span>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <span>ÉDUCATION ET APPRENTISSAGE EN LIGNE</span>
+            <p>Une petite rivière nommée Duden passe par leur endroit et la fournit en regelialia nécessaires.</p>
 
             <i className='fab fa-facebook-f icon'></i>
             <i className='fab fa-twitter icon'></i>
             <i className='fab fa-instagram icon'></i>
           </div>
           <div className='box link'>
-            <h3>Explore</h3>
+            <h3>Explorer</h3>
             <ul>
-              <li>About Us</li>
+              <li>À propos de nous</li>
               <li>Services</li>
-              <li>Courses</li>
+              <li>Cours</li>
               <li>Blog</li>
-              <li>Contact us</li>
+              <li>Contactez-nous</li>
             </ul>
           </div>
           <div className='box link'>
-            <h3>Quick Links</h3>
+            <h3>Liens rapides</h3>
             <ul>
-              <li>Contact Us</li>
-              <li>Pricing</li>
-              <li>Terms & Conditions</li>
-              <li>Privacy</li>
-              <li>Feedbacks</li>
+              <li>Contactez-nous</li>
+              <li>Tarification</li>
+              <li>Termes & Conditions</li>
+              <li>Confidentialité</li>
+              <li>Retours d'expérience</li>
             </ul>
           </div>
           <div className='box'>
-            <h3>Recent Post</h3>
+            <h3>Articles récents</h3>
             {blog.slice(0, 3).map((val) => (
-              <div className='items flexSB'>
+              <div className='items flexSB' key={val.id}>
                 <div className='img'>
                   <img src={val.cover} alt='' />
                 </div>
                 <div className='text'>
                   <span>
                     <i className='fa fa-calendar-alt'></i>
-                    <label htmlFor=''>{val.date}</label>
+                    <label>{val.date}</label>
                   </span>
                   <span>
                     <i className='fa fa-user'></i>
-                    <label htmlFor=''>{val.type}</label>
+                    <label>{val.type}</label>
                   </span>
                   <h4>{val.title.slice(0, 40)}...</h4>
                 </div>
@@ -70,11 +70,11 @@ const Footer = () => {
             ))}
           </div>
           <div className='box last'>
-            <h3>Have a Questions?</h3>
+            <h3>Vous avez des questions ?</h3>
             <ul>
               <li>
                 <i className='fa fa-map'></i>
-               SOUSSE, TUNISIE
+                SOUSSE, TUNISIE
               </li>
               <li>
                 <i className='fa fa-phone-alt'></i>

@@ -16,18 +16,18 @@ const Hero = () => {
       <section className='hero'>
         <div className='container'>
           <div className='row'>
-            <Heading subtitle='WELCOME TO ACADEMIA' title='Best Online Education Expertise' />
-            <p>provides engaging eLearning with multimedia content, gamified experiences, and adaptive technologies.</p>
+            <Heading subtitle='BIENVENUE À E-LEARNING' title='Expertise en Éducation en Ligne' />
+            <p>Découvrez une plateforme d'apprentissage en ligne immersive, offrant une expérience pédagogique enrichissante.</p>
           
           </div>
         </div>
       </section>
       <div className='button'>
               <button onClick={()=>{login()}} className='primary-btn'>
-                Login <i className='fa fa-long-arrow-alt-right'></i>
+              Connexion <i className='fa fa-long-arrow-alt-right'></i>
               </button>
               <button onClick={()=>{registre()}}>
-                Signe Up <i className='fa fa-long-arrow-alt-right'></i>
+              Inscription <i className='fa fa-long-arrow-alt-right'></i>
               </button>
       </div>
       <div className='margin1'></div>

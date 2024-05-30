@@ -99,7 +99,7 @@ const AjouterEnseignant = () => {
                 <label className="input-group-text" >Role</label>
                 <select  value={role} onChange={(e)=>setRole(e.target.value)} className="formSelect" >
                 <option  >Choose...</option>
-                <option value="Eleves">Etudiant</option>
+                <option value="Eleves">Apprenant</option>
                 <option value="Admin">Admin</option>
                 <option value="Enseignant">Enseignant</option>
 

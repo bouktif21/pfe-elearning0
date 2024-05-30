@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { Grid, Paper, Typography } from '@mui/material';
+import { Grid, Paper, Typography, Box } from '@mui/material';
+import FormsIcon from '@mui/icons-material/ListAlt'; // Example icon, replace with appropriate one
+import UsersIcon from '@mui/icons-material/People'; // Example icon, replace with appropriate one
+import UserValidationIcon from '@mui/icons-material/VerifiedUser'; // Example icon, replace with appropriate one
 
 function Dashboard() {
   const [viewUserCount, setViewUserCount] = useState("");
@@ -17,15 +20,16 @@ function Dashboard() {
   const paperStyle = {
     padding: '20px',
     textAlign: 'center',
-    color: 'black',
+    color: '#333',
     background: '#fff',
-    borderRadius: '4px',
-    boxShadow: '0 1px 1px rgba(0,0,0,.05)',
-    transition: 'all .3s',
+    borderRadius: '8px',
+    boxShadow: '0 3px 6px rgba(0,0,0,0.1)',
+    transition: 'all 0.3s ease',
     cursor: 'pointer',
+    height: '100%',
     '&:hover': {
       transform: 'translateY(-3px)',
-      boxShadow: '0 2px 2px rgba(0,0,0,.1)'
+      boxShadow: '0 6px 12px rgba(0,0,0,0.2)'
     }
   };
 
@@ -37,34 +41,52 @@ function Dashboard() {
     }
   };
 
+  const iconStyle = {
+    fontSize: '3rem',
+    color: '#007bff',
+    marginBottom: '10px'
+  };
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6} md={3}>
         <Paper style={paperStyle} elevation={3}>
-          <Typography variant="h5" align="center">{viewForm}</Typography>
-          <Typography variant="subtitle1" align="center">Liste de Forms</Typography>
-          <Link to="/admin/form_list" style={linkStyle}>Plus d'informations</Link>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <FormsIcon style={iconStyle} />
+            <Typography variant="h5" align="center">{viewForm}</Typography>
+            <Typography variant="subtitle1" align="center">Forms List</Typography>
+            <Link to="/admin/form_list" style={linkStyle}>More Information</Link>
+          </Box>
         </Paper>
       </Grid>
       <Grid item xs={12} sm={6} md={3}>
         <Paper style={paperStyle} elevation={3}>
-          <Typography variant="h5" align="center">{viewUserNonValideCount}</Typography>
-          <Typography variant="subtitle1" align="center">Les compts Non valide</Typography>
-          <Link to="/admin/user_list" style={linkStyle}>Plus d'informations</Link>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <UserValidationIcon style={iconStyle} />
+            <Typography variant="h5" align="center">{viewUserNonValideCount}</Typography>
+            <Typography variant="subtitle1" align="center">Non-Validated Accounts</Typography>
+            <Link to="/admin/user_list" style={linkStyle}>More Information</Link>
+          </Box>
         </Paper>
       </Grid>
       <Grid item xs={12} sm={6} md={3}>
         <Paper style={paperStyle} elevation={3}>
-          <Typography variant="h5" align="center">{viewUserCount}</Typography>
-          <Typography variant="subtitle1" align="center">Inscriptions des utilisateurs</Typography>
-          <Link to="/admin/user_list" style={linkStyle}>Plus d'informations</Link>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <UsersIcon style={iconStyle} />
+            <Typography variant="h5" align="center">{viewUserCount}</Typography>
+            <Typography variant="subtitle1" align="center">User Registrations</Typography>
+            <Link to="/admin/user_list" style={linkStyle}>More Information</Link>
+          </Box>
         </Paper>
       </Grid>
       <Grid item xs={12} sm={6} md={3}>
         <Paper style={paperStyle} elevation={3}>
-          <Typography variant="h5" align="center">{viewUserNonValideCount}</Typography>
-          <Typography variant="subtitle1" align="center">Les compts Non valide</Typography>
-          <Link to="/admin/user_list" style={linkStyle}>Plus d'informations</Link>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <UserValidationIcon style={iconStyle} />
+            <Typography variant="h5" align="center">{viewUserNonValideCount}</Typography>
+            <Typography variant="subtitle1" align="center">Non-Validated Accounts</Typography>
+            <Link to="/admin/user_list" style={linkStyle}>More Information</Link>
+          </Box>
         </Paper>
       </Grid>
     </Grid>
@@ -72,3 +94,4 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
