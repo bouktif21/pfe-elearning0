@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams  } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import axios from "axios";
 import { List, ListItem, ListItemIcon, ListItemText,Typography } from '@mui/material';
-import { PictureAsPdf as PdfIcon, Visibility as ViewIcon , Description as QcmIcon} from '@mui/icons-material';
+import { PictureAsPdf as PdfIcon, Visibility as ViewIcon } from '@mui/icons-material';
 
 function ListeCours() {
 
@@ -109,50 +109,6 @@ function ListeCours() {
                 )}
             </List>
 
-            <List>
-                <h6 style={{ marginLeft: "16px", color: "#1eb2a6" }}>Qcm</h6>
-                {viewQcm.length === 0 ? (
-                    <Typography variant="body1" style={{ fontSize:"14px", color: "red", marginLeft: "16px" }}>
-                        Vous n'avez pas des QCM pour cette formation
-                    </Typography>
-                ) : (
-                  viewQcm.map((course, index) => (
-                        <ListItem key={index} style={{ backgroundColor: "#f0f0f0", borderRadius: "5px", margin: "5px 0" }}>
-                            <ListItemIcon>
-                                <PdfIcon style={{ color: "#1eb2a6" }} />
-                            </ListItemIcon>
-                            <ListItemText primary={course.cour} />
-                            <ListItemIcon>
-                                <a href={`http://localhost:8000/uploads/Cours/${course.file}`} target="_blank" rel="noopener noreferrer">
-                                    <ViewIcon style={{ color: "#1eb2a6" }} />
-                                </a>
-                            </ListItemIcon>
-                        </ListItem>
-                    ))
-                )}
-            </List>
-            <List>
-                <h6 style={{ marginLeft: "16px", color: "#1eb2a6" }}>Liste des Reunion</h6>
-                {viewReunion.length === 0 ? (
-                    <Typography variant="body1" style={{ fontSize:"14px", color: "red", marginLeft: "16px" }}>
-                        Vous n'avez pas des réunion pour cette formation
-                    </Typography>
-                ) : (
-                    viewReunion.map((course, index) => (
-                        <ListItem key={index} style={{ backgroundColor: "#f0f0f0", borderRadius: "5px", margin: "5px 0" }}>
-                            <ListItemIcon>
-                                <PdfIcon style={{ color: "#1eb2a6" }} />
-                            </ListItemIcon>
-                            <ListItemText primary={course.cour} />
-                            <ListItemIcon>
-                                <a href={`http://localhost:8000/uploads/Cours/${course.file}`} target="_blank" rel="noopener noreferrer">
-                                    <ViewIcon style={{ color: "#1eb2a6" }} />
-                                </a>
-                            </ListItemIcon>
-                        </ListItem>
-                    ))
-                )}
-            </List>
         </div>
     );
 }

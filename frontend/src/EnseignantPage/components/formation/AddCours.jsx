@@ -56,7 +56,7 @@ const AddCours = () => {
          <Box  className="public_cours_form" ml="100px">
         <form onSubmit={handleSubmit}>
         <Grid item xs={12}>
-            <p><strong> Prénom:</strong> </p>
+            <p><strong> Cour:</strong> </p>
             <TextField
               label="Nom de Cour"
               value={Name}

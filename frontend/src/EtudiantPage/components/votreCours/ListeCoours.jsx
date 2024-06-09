@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams  } from 'react-router-dom';
 import axios from "axios";
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { List, ListItem, ListItemIcon, ListItemText,Typography } from '@mui/material';
 import { PictureAsPdf as PdfIcon, Visibility as ViewIcon , Description as QcmIcon} from '@mui/icons-material';
 function ListeCoours() {
     const { id } = useParams();
@@ -50,7 +50,13 @@ function ListeCoours() {
         <div>
             <List>
                 <h6 style={{ marginLeft: "16px", color: "#1eb2a6" }}>Liste des Cours</h6>
-                {viewCours.map((course, index) => (
+                {viewCours.length === 0 ? (
+                    <Typography variant="body1" style={{ fontSize:"14px", color: "red", marginLeft: "16px" }}>
+                        Vous n'avez pas des coures pour cette formation
+                    </Typography>
+                ) : (                
+                
+                viewCours.map((course, index) => (
                     <ListItem key={index} style={{ backgroundColor: "#f0f0f0", borderRadius: "5px", margin: "5px 0" }}>
                         <ListItemIcon>
                             <PdfIcon style={{ color: "#1eb2a6" }} />
@@ -62,11 +68,20 @@ function ListeCoours() {
                             </a>
                         </ListItemIcon>
                     </ListItem>
-                ))}
+                  ))
+                )}
             </List>
             <List>
                 <h6 style={{ marginLeft: "16px", color: "#1eb2a6" }}>Qcm</h6>
-                {viewQcm.map((qcm, index) => (
+                {viewQcm.length === 0 ? (
+                    <Typography variant="body1" style={{ fontSize:"14px", color: "red", marginLeft: "16px" }}>
+                        Vous n'avez pas des Qcm pour cette formation
+                    </Typography>
+                ) : (                
+                
+                
+                
+                viewQcm.map((qcm, index) => (
                     <ListItem key={index} style={{ backgroundColor: "#f0f0f0", borderRadius: "5px", margin: "5px 0" }}>
                         <ListItemIcon>
                         <QcmIcon style={{ color: "#1eb2a6" }} /> {/* Replaced PdfIcon with QcmIcon */}
@@ -76,11 +91,18 @@ function ListeCoours() {
                             <ViewIcon style={{ color: "#1eb2a6" }} />
                             </ListItemIcon>
                     </ListItem>
-                ))}
+                 ))
+                )}
             </List>
             <List>
                 <h6 style={{ marginLeft: "16px", color: "#1eb2a6" }}>Liste des Reunion</h6>
-                {viewReunion.map((Reunion, index) => (
+                {viewReunion.length === 0 ? (
+                    <Typography variant="body1" style={{ fontSize:"14px", color: "red", marginLeft: "16px" }}>
+                        Vous n'avez pas des Reunion pour cette formation
+                    </Typography>
+                ) : (  
+                
+                viewReunion.map((Reunion, index) => (
                     <ListItem key={index} style={{ backgroundColor: "#f0f0f0", borderRadius: "5px", margin: "5px 0" }}>
                         <ListItemIcon>
                             <PdfIcon style={{ color: "#1eb2a6" }} />
@@ -93,7 +115,8 @@ function ListeCoours() {
                             </a>
                         </ListItemIcon>
                     </ListItem>
-                ))}
+                 ))
+                )}
             </List>
         </div>
     );
